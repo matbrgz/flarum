@@ -125,7 +125,13 @@ Options -MultiViews
     </IfModule>
 </IfModule>
 
-# Fix for https://httpoxy.org vulnerability
 <IfModule mod_headers.c>
+# Fix for https://httpoxy.org vulnerability
   RequestHeader unset Proxy
+
+# X-XSS-Protection
+# Header set X-XSS-Protection "1; mode=block"
+
+# Strict-Transport-Security
+# Header set Strict-Transport-Security "max-age=31536000; preload" env=HTTPS
 </IfModule>
